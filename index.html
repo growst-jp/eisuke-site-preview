@@ -1,0 +1,594 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="エイスケは、資料作成・発表・議事録をひとつの土台でつなぐ法人向けサービスです。AIで構成案とスライドを作り、発表中は手元のメモで説明し、会議の要点を議事録に残します。">
+<title>エイスケ｜法人向け 資料作成・発表支援・議事録</title>
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/css/site.css">
+<!-- v4/D5: JavaScriptが止まっているときはトップページだけを表示する。
+     scriptを有効にしている間はこの中のstyleは読み込まれないので、通常表示には影響しない。 -->
+<noscript><style>.page[data-page="top"]{display:block}</style></noscript>
+</head>
+<body>
+<a href="#main" class="btn btn-brand btn-sm skip-link">本文へ移動</a>
+
+<noscript><div class="noscript">このサイトは画面の切り替えにJavaScriptを使っています。現在はトップページだけを表示しています。</div></noscript>
+
+<!-- ===================== ヘッダー ===================== -->
+<header class="hd">
+  <div class="wrap hd-in">
+    <a class="logo" href="#/" aria-label="エイスケ トップへ">
+      <span class="logo-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"><rect x="3" y="5" width="18" height="12" rx="2"/><path d="M7 9.5h10M7 13h6"/></svg></span>
+      <span><b>エイスケ</b><small>法人向け 資料・発表・議事録</small></span>
+    </a>
+    <nav class="gnav" aria-label="メインメニュー">
+      <button type="button" aria-expanded="false" aria-controls="mega" data-mega="feat">製品・機能<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button>
+      <button type="button" aria-expanded="false" aria-controls="mega" data-mega="issue">業務の悩みから<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button>
+      <button type="button" aria-expanded="false" aria-controls="mega" data-mega="scene">利用場面から<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button>
+      <a href="#/integration">連携・書き出し</a>
+      <a href="#/security">セキュリティ</a>
+      <a href="#/#pricing">料金の考え方</a>
+    </nav>
+    <div class="hd-cta">
+      <button class="btn btn-line btn-sm" data-open-form="資料請求">サービス資料</button>
+      <button class="btn btn-cta btn-sm" data-open-form="デモ相談">デモ・導入相談<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+    </div>
+    <button class="burger" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="mega" id="burger"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </div>
+  <div class="mega" id="mega">
+    <div class="mega-in">
+      <div class="mega-tabs" role="tablist" aria-label="探し方">
+        <button role="tab" id="mgt-feat" aria-controls="mgp-feat" aria-selected="true" tabindex="0" data-mtab="feat">製品・機能から探す<span>›</span></button>
+        <button role="tab" id="mgt-issue" aria-controls="mgp-issue" aria-selected="false" tabindex="-1" data-mtab="issue">業務の悩みから探す<span>›</span></button>
+        <button role="tab" id="mgt-scene" aria-controls="mgp-scene" aria-selected="false" tabindex="-1" data-mtab="scene">利用場面・部門から探す<span>›</span></button>
+      </div>
+      <div>
+        <div class="mega-panel on" id="mgp-feat" role="tabpanel" aria-labelledby="mgt-feat" data-mpanel="feat">
+          <a class="mega-link" href="#/features/ai"><b>AI資料作成<span>→</span></b><span>短い依頼から構成案、承認後に全スライドを生成</span></a>
+          <a class="mega-link" href="#/features/edit"><b>編集・書き出し<span>→</span></b><span>16:9の編集画面、PowerPoint・PDFへ書き出し</span></a>
+          <a class="mega-link" href="#/features/present"><b>発表者画面とAIカンペ<span>→</span></b><span>聴衆にはスライドだけ。メモと回答案は手元に</span></a>
+          <a class="mega-link" href="#/features/minutes"><b>議事録<span>→</span></b><span>資料がなくても開始。決定・未決・ToDoを整理</span></a>
+          <a class="mega-link" href="#/features/company"><b>企業リサーチ<span>→</span></b><span>出典付きの公開情報と仮説を分けて管理</span></a>
+          <a class="mega-link" href="#/integration"><b>連携・書き出し一覧<span>→</span></b><span>どのデータを、いつ、どこへ出すか</span></a>
+        </div>
+        <div class="mega-panel" id="mgp-issue" role="tabpanel" aria-labelledby="mgt-issue" data-mpanel="issue">
+          <a class="mega-link" href="#/features/ai"><b>提案資料を毎回ゼロから作っている<span>→</span></b><span>構成案の確認から始めて、全体を一括で生成</span></a>
+          <a class="mega-link" href="#/features/present"><b>発表中の質問にその場で答えにくい<span>→</span></b><span>手元だけに回答案と根拠を表示</span></a>
+          <a class="mega-link" href="#/features/minutes"><b>会議の決定事項が残らない<span>→</span></b><span>決定・未決・ToDoを分けて記録</span></a>
+          <a class="mega-link" href="#/features/company"><b>訪問先の下調べがばらばら<span>→</span></b><span>出典と確認日を付けて社内で使い回す</span></a>
+          <a class="mega-link" href="#/security"><b>画面共有でメモが映るのが怖い<span>→</span></b><span>聴衆画面にはスライドだけを送る設計</span></a>
+          <a class="mega-link" href="#/#pricing"><b>利用人数で費用が増えるのが困る<span>→</span></b><span>アカウント人数に上限なし、会社単位の共通クレジット</span></a>
+        </div>
+        <div class="mega-panel" id="mgp-scene" role="tabpanel" aria-labelledby="mgt-scene" data-mpanel="scene">
+          <a class="mega-link" href="#/features/ai"><b>営業・提案<span>→</span></b><span>企業情報から提案資料を作り、商談を記録</span></a>
+          <a class="mega-link" href="#/features/present"><b>セミナー・説明会<span>→</span></b><span>発表者画面とタイマーで時間どおりに進行</span></a>
+          <a class="mega-link" href="#/features/minutes"><b>社内の定例会議<span>→</span></b><span>資料なしで議事録だけ使う</span></a>
+          <a class="mega-link" href="#/features/edit"><b>社内報告・経営会議<span>→</span></b><span>表と棒グラフを編集し、PDFで配布</span></a>
+          <a class="mega-link" href="#/security"><b>情報システム部門の確認<span>→</span></b><span>ログイン、データの分け方、AIへの送信範囲</span></a>
+          <a class="mega-link" href="#/#pricing"><b>決裁・費用の確認<span>→</span></b><span>料金の考え方と社内検討のご相談</span></a>
+        </div>
+        <div class="mega-sp-cta" style="display:none;grid-template-columns:1fr 1fr;gap:8px;margin-top:16px">
+          <button class="btn btn-line" data-open-form="資料請求">サービス資料</button>
+          <button class="btn btn-cta" data-open-form="デモ相談">デモ・導入相談</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+<!-- ============================================================
+     ページ1：総合トップ
+     ============================================================ -->
+<div class="page" data-page="top">
+  <section class="fv">
+    <div class="wrap fv-grid">
+      <div>
+        <h1 data-st="tbd">提案の準備から<br>会議の記録まで、<br>ひとつの画面で。</h1>
+        <p class="lead">AIで構成案とスライドを作り、発表中は手元のメモで説明し、会議の要点を議事録に残す。営業・提案の準備を支える法人向けサービスです。</p>
+        <ul class="facts">
+          <li data-st="policy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m5 12 4 4 10-10"/></svg>アカウント人数の上限なし</li>
+          <li data-st="policy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m5 12 4 4 10-10"/></svg>会社単位の共通クレジット</li>
+          <li data-st="wip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m5 12 4 4 10-10"/></svg>PowerPointで編集できる形式で書き出し</li>
+        </ul>
+      </div>
+      <div>
+        <div class="shot">
+          <div class="shot-bar"><i></i><i></i><i></i><span>エイスケ｜資料の編集画面</span></div>
+          <img src="assets/img/eisuke-editor.png" alt="資料の編集画面。左にスライド一覧、中央に16:9の編集キャンバスと文字の書式ツール" width="872" height="893" style="aspect-ratio:872/600;object-fit:cover;object-position:top">
+        </div>
+        <div class="cap">画面はイメージです。表示している資料は架空のサンプルです。</div>
+      </div>
+    </div>
+    <div class="fv-cta">
+      <div class="fv-cta-in">
+        <div class="cta-block">
+          <span class="bubble">機能と導入の流れがわかる</span>
+          <button class="btn btn-line btn-lg" data-open-form="資料請求">サービス資料を請求する<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 4v12m0 0-5-5m5 5 5-5M5 20h14"/></svg></button>
+          <small>必須の入力は4項目です</small>
+        </div>
+        <div class="cta-block">
+          <span class="bubble">自社の使い方で画面を確認</span>
+          <button class="btn btn-cta btn-lg" data-open-form="デモ相談">画面デモを申し込む<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+          <small>オンラインで画面を見ながらご説明します</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 全体構造（ハブ＆スポーク） -->
+  <section class="sec after-fv" style="padding-top:150px">
+    <div class="wrap">
+      <h2 class="h2">資料・企業情報・会議を、ひとつの土台でつなぐ</h2>
+      <div class="hub" id="hub">
+        <svg class="lines" aria-hidden="true"></svg>
+        <div class="hub-col">
+          <div class="hub-label">社内の作業</div>
+          <div class="hub-node" data-st="wip"><b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v3m0 12v3M3 12h3m12 0h3M6 6l2 2m8 8 2 2M6 18l2-2m8-8 2-2"/></svg>AI資料作成</b><span class="pill">構成案 → 全スライド生成</span></div>
+          <div class="hub-node" data-st="impl"><b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="12" rx="2"/><path d="M8 21h8"/></svg>編集・テンプレート</b><span class="pill">変更を自動保存・履歴20件</span></div>
+          <div class="hub-node" data-st="impl"><b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4-4"/></svg>企業リサーチ</b><span class="pill">選んだ公開情報だけを資料へ</span></div>
+        </div>
+        <div class="hub-core">
+          <b>エイスケ</b>
+          <p>会社で共有するデータの土台</p>
+          <div class="core-list"><span>資料</span><span>企業情報</span><span>議事録</span><span>テンプレート</span><span>版の履歴</span><span>利用クレジット</span></div>
+        </div>
+        <div class="hub-col">
+          <div class="hub-label">発表と会議</div>
+          <div class="hub-node" data-st="impl"><b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="13" height="10" rx="1"/><rect x="17" y="8" width="5" height="10" rx="1"/></svg>発表者画面</b><span class="pill">聴衆にはスライドだけ送信</span></div>
+          <div class="hub-node" data-st="wip"><b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3a3 3 0 0 0-3 3v5a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3Z"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>AIカンペ</b><span class="pill">選んだ発言だけをAIへ</span></div>
+          <div class="hub-node" data-st="impl"><b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h9l4 4v14H6z"/><path d="M9 11h7M9 15h7"/></svg>議事録</b><span class="pill">関連資料を最大10件ひも付け</span></div>
+        </div>
+      </div>
+      <div class="hub hub-ext-row">
+        <div class="hub-ext hub-node" data-st="wip"><b>PowerPoint</b><span class="pill">編集できるPPTXで書き出し</span></div>
+        <div class="hub-ext hub-node" data-st="impl"><b>PDF</b><span class="pill">ノートを含めず書き出し</span></div>
+        <div class="hub-ext hub-node" data-st="tbd"><b>外部AI（資料生成・文字起こし）</b><span class="pill">送信前に同意を確認</span></div>
+        <div class="hub-ext hub-node" data-st="wip"><b>会社のログイン</b><span class="pill">所属と役割を毎回確認</span></div>
+      </div>
+      <div class="center"><a class="btn btn-line" href="#/integration">連携・書き出しの詳細を見る<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+    </div>
+  </section>
+
+  <!-- 多軸探索 -->
+  <section class="sec alt">
+    <div class="wrap">
+      <h2 class="h2">目的から、使い方を探す</h2>
+      <div class="tabs" role="tablist" aria-label="探し方">
+        <button role="tab" id="tab-t-feat" aria-controls="t-feat" aria-selected="true" tabindex="0" data-tab="t-feat">機能から</button>
+        <button role="tab" id="tab-t-issue" aria-controls="t-issue" aria-selected="false" tabindex="-1" data-tab="t-issue">業務の悩みから</button>
+        <button role="tab" id="tab-t-scene" aria-controls="t-scene" aria-selected="false" tabindex="-1" data-tab="t-scene">利用場面・部門から</button>
+      </div>
+      <div class="tab-panel on" id="t-feat" role="tabpanel" aria-labelledby="tab-t-feat">
+        <div class="card find-card"><b class="h3">AI資料作成</b><p>「誰に、何を伝えたいか」を短く入力。構成案を確認・修正してから全スライドを作ります。</p><a class="btn btn-line btn-sm" href="#/features/ai">詳しく見る →</a></div>
+        <div class="card find-card"><b class="h3">発表者画面とAIカンペ</b><p>現在と次のスライド、タイマー、ノートを手元に。聴衆側にはスライドだけを表示します。</p><a class="btn btn-line btn-sm" href="#/features/present">詳しく見る →</a></div>
+        <div class="card find-card"><b class="h3">議事録</b><p>資料がなくても開始できます。要約・決定・未決・ToDoを分けて残し、検索できます。</p><a class="btn btn-line btn-sm" href="#/features/minutes">詳しく見る →</a></div>
+      </div>
+      <div class="tab-panel" id="t-issue" role="tabpanel" aria-labelledby="tab-t-issue">
+        <div class="card find-card"><b class="h3">提案資料を毎回ゼロから作っている</b><p>テンプレートと短い依頼から構成案を作り、承認した構成で一括生成します。</p><a class="btn btn-line btn-sm" href="#/features/ai">解決方法を見る →</a></div>
+        <div class="card find-card"><b class="h3">発表中の質問にその場で答えにくい</b><p>選んだ質問に対して、資料とノートを根拠にした回答案を手元だけに表示します。</p><a class="btn btn-line btn-sm" href="#/features/present">解決方法を見る →</a></div>
+        <div class="card find-card"><b class="h3">会議の決定事項が残らない</b><p>決定・未決・ToDoを分けて記録。担当や期限はAIが推測せず、人が確定します。</p><a class="btn btn-line btn-sm" href="#/features/minutes">解決方法を見る →</a></div>
+      </div>
+      <div class="tab-panel" id="t-scene" role="tabpanel" aria-labelledby="tab-t-scene">
+        <div class="card find-card"><b class="h3">営業・提案</b><p>訪問先の公開情報を出典付きで整理し、提案資料と商談メモにつなげます。</p><a class="btn btn-line btn-sm" href="#/features/company">使い方を見る →</a></div>
+        <div class="card find-card"><b class="h3">セミナー・説明会</b><p>別ウィンドウの聴衆画面とページ連動。発表者ノートは聴衆に表示しません。</p><a class="btn btn-line btn-sm" href="#/features/present">使い方を見る →</a></div>
+        <div class="card find-card"><b class="h3">社内報告・経営会議</b><p>表や棒グラフを編集し、PDFやPowerPoint形式で配布できます。</p><a class="btn btn-line btn-sm" href="#/features/edit">使い方を見る →</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 主要機能 -->
+  <section class="sec" id="features">
+    <div class="wrap">
+      <h2 class="h2">準備・発表・記録を支える5つの機能</h2>
+
+      <div class="feat">
+        <div class="feat-img"><img src="assets/img/eisuke-editor.png" alt="資料の編集画面。スライド一覧と、文字を選んで書式を変える様子" width="872" height="893" style="aspect-ratio:872/560;object-fit:cover;object-position:top" loading="lazy"></div>
+        <div>
+          <div class="feat-cat">資料をつくる</div>
+          <h3 class="h3" data-st="wip">短い依頼から、構成を確かめて一括生成</h3>
+          <ul>
+            <li>テンプレートを選び、伝えたいことを短く入力</li>
+            <li>AIの構成案を修正・承認してから全スライドを生成</li>
+            <li>プレビューで確認し、適用するまで元の資料は変わりません</li>
+          </ul>
+          <a class="btn btn-line btn-sm" href="#/features/ai">AI資料作成を詳しく見る →</a>
+        </div>
+      </div>
+
+      <div class="feat rev">
+        <div class="feat-img">
+          <div class="pv" aria-label="発表者画面のイメージ">
+            <div class="pv-top"><span class="pv-chip live">● 発表中</span><span class="pv-chip num">経過 12:34</span><span class="pv-chip num">5 / 18</span><span class="pv-lock">この画面は発表者だけに表示</span></div>
+            <div class="pv-slide"><img src="assets/img/eisuke-presenter-slide.png" alt="発表中のスライド（架空のサンプル資料）" width="798" height="522" loading="lazy"></div>
+            <div class="pv-side">
+              <h4>AIカンペ</h4>
+              <div class="pv-q">選んだ質問：「導入後の運用は誰が担当しますか」</div>
+              <div class="pv-a">資料6枚目「導入のステップ」をもとに回答案を表示します。<br><em>要確認：</em>担当者名は資料にないため推測しません。</div>
+            </div>
+            <div class="pv-note">発表者ノート：導入の目的と3つの効果を簡潔に説明し、次のスライドへつなげる。</div>
+          </div>
+        </div>
+        <div>
+          <div class="feat-cat">発表する</div>
+          <h3 class="h3">聴衆にはスライドだけ、手元にはメモと回答案</h3>
+          <ul>
+            <li data-st="impl">現在・次のスライド、タイマー、ノートを1画面に</li>
+            <li data-st="impl">聴衆用の別ウィンドウへはスライドの表示情報だけを送信</li>
+            <li data-st="wip">選んだ質問に、資料を根拠にした回答案を表示</li>
+          </ul>
+          <a class="btn btn-line btn-sm" href="#/features/present">発表者画面を詳しく見る →</a>
+        </div>
+      </div>
+
+      <div class="feat">
+        <div class="feat-img">
+          <div class="mv" aria-label="議事録画面のイメージ">
+            <div class="mv-h"><b>定例：営業部 週次ミーティング（架空）</b><span class="tag">関連資料 2件</span></div>
+            <div class="mv-box"><h4>決定事項</h4><ul><li>提案書の改訂版を次回までに作成する</li><li>展示会の出展は見送る</li></ul></div>
+            <div class="mv-box"><h4>未決事項</h4><ul><li>見積の前提条件（先方確認待ち）</li></ul></div>
+            <div class="mv-box"><h4>ToDo <span class="tag wait">担当・期限 未入力</span></h4><ul><li>改訂版の構成案をまとめる</li></ul></div>
+            <div class="mv-box"><h4>AI案 <span class="tag ok">確認して適用</span></h4><ul><li>要約案を確認し、必要な部分だけ反映</li></ul></div>
+          </div>
+        </div>
+        <div>
+          <div class="feat-cat">記録する</div>
+          <h3 class="h3">資料がない会議でも、議事録だけで使える</h3>
+          <ul>
+            <li data-st="impl">会議名・企業・本文・決定・未決・ToDoを分けて保存</li>
+            <li data-st="impl">関連資料のひも付け、キーワード検索、TXT・Markdown・PDF出力</li>
+            <li data-st="wip">AIの要約案は確認してから反映。担当や期限は推測しません</li>
+          </ul>
+          <a class="btn btn-line btn-sm" href="#/features/minutes">議事録を詳しく見る →</a>
+        </div>
+      </div>
+
+      <div class="feat rev">
+        <div class="feat-img">
+          <div class="cv" aria-label="企業リサーチ画面のイメージ">
+            <b>北陸精機工業（架空）</b>
+            <div class="cv-row"><span class="tag ok">公開情報</span><div>2026年度から新工場の稼働を予定<small>出典：同社ニュースリリース／確認日 2026-11-10</small></div></div>
+            <div class="cv-row"><span class="tag wait">仮説</span><div>生産管理の帳票作成に手間がかかっている可能性<small>未確認・資料には自動で入りません</small></div></div>
+            <div class="cv-row"><span class="tag">商談で確認</span><div>部門ごとに報告書の書式が異なる<small>11月の商談メモから追記</small></div></div>
+          </div>
+        </div>
+        <div>
+          <div class="feat-cat">調べる</div>
+          <h3 class="h3" data-st="impl">出典のある情報と仮説を分けて、提案に使う</h3>
+          <ul>
+            <li>公開情報には出典名・URL・確認日を記録</li>
+            <li>仮説や商談で聞いた情報は種類を分けて管理</li>
+            <li>選んだ公開情報だけを資料のスライドに追加</li>
+          </ul>
+          <a class="btn btn-line btn-sm" href="#/features/company">企業リサーチを詳しく見る →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 比較 -->
+  <section class="sec alt">
+    <div class="wrap">
+      <h2 class="h2">これまでの準備との違い</h2>
+      <div class="cmp-wrap cmp-card" tabindex="0" aria-label="比較表（横にスクロールできます）">
+        <table class="cmp">
+          <thead><tr><th scope="col">比べる点</th><th scope="col" class="me">エイスケ</th><th scope="col">汎用のスライドソフト＋別の議事録ツール</th><th scope="col">過去資料のコピーと手作業</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">構成づくり</th><td class="me" data-st="wip"><span class="mk a">◎</span>AIの構成案を人が修正・承認してから全スライドを生成</td><td><span class="mk b">○</span>ツールにより生成機能あり。構成の承認手順は製品ごとに異なる</td><td><span class="mk c">△</span>過去資料の流用で、旧顧客の情報が残りやすい</td></tr>
+            <tr><th scope="row">発表中のメモ</th><td class="me" data-st="impl"><span class="mk a">◎</span>聴衆画面にはスライドだけを送信。ノートは手元だけ</td><td><span class="mk b">○</span>発表者ツールあり。共有する画面の選び方に注意が必要</td><td><span class="mk c">△</span>紙や別画面のメモに頼る</td></tr>
+            <tr><th scope="row">企業情報</th><td class="me" data-st="impl"><span class="mk a">◎</span>出典・確認日付きで保存し、選んだ情報だけを資料へ</td><td><span class="mk c">△</span>別のメモやファイルで管理</td><td><span class="mk c">△</span>担当者ごとに分散</td></tr>
+            <tr><th scope="row">会議と資料のつながり</th><td class="me" data-st="impl"><span class="mk a">◎</span>議事録に関連資料を最大10件ひも付け、まとめて検索</td><td><span class="mk b">○</span>ツール間を手作業でリンク</td><td><span class="mk c">△</span>ファイル名とフォルダで管理</td></tr>
+            <tr><th scope="row">利用人数と費用</th><td class="me" data-st="policy"><span class="mk a">◎</span>アカウント人数の上限なし。会社単位の共通クレジット</td><td><span class="mk b">○</span>多くは利用者ごとの契約</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- 料金の考え方・シミュレーター -->
+  <section class="sec" id="pricing">
+    <div class="wrap">
+      <h2 class="h2">人数ではなく、会社単位のクレジットで</h2>
+      <div class="price-grid">
+        <div class="card price-pt" data-st="policy"><div class="big">人数の上限なし</div><p>会社のアカウントは人数を問わず追加できます。</p></div>
+        <div class="card price-pt" data-st="policy"><div class="big">会社で共通のクレジット</div><p>資料のAI生成や文字起こしなどで、会社全体の枠を共有して使います。</p></div>
+        <div class="card price-pt" data-st="policy"><div class="big">毎月同じ日に付与</div><p>付与した月の翌月末まで使えます。</p></div>
+      </div>
+      <div class="plan-wrap">
+        <table class="scope plan">
+          <caption>プランと料金（税別・会社単位）</caption>
+          <thead><tr><th scope="col">プラン</th><th scope="col">月額</th><th scope="col">年額</th><th scope="col">毎月の基本クレジット</th></tr></thead>
+          <tbody>
+            <tr data-st="policy"><th scope="row">スタート</th><td>19,800円</td><td>217,800円</td><td>500cr</td></tr>
+            <tr data-st="policy"><th scope="row">スタンダード</th><td>49,800円</td><td>547,800円</td><td>1,500cr</td></tr>
+            <tr data-st="policy"><th scope="row">ビジネス</th><td>99,800円</td><td>1,097,800円</td><td>3,500cr</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="plan-note">料金は承認済みの販売条件（税別）です。年契約は12か月・年額は月額の11か月分、無料体験はありません。追加クレジットは25cr 1,500円／100cr 5,000円／1,000cr 42,500円（税別）です。<b>課金とクレジットの製品機能は実装前</b>のため、提供開始時に正式な条件書をご案内します。</p>
+      <div class="sim" data-st="plan">
+        <div class="sim-in">
+          <h3 class="h3" style="margin-bottom:20px">利用の目安を試算する</h3>
+          <div class="field"><label for="s-docs">AIで作る資料（月）<output id="o-docs" class="num">10本</output></label><input id="s-docs" type="range" min="0" max="100" step="1" value="10"></div>
+          <div class="field"><label for="s-meet">文字起こしする会議（月）<output id="o-meet" class="num">8回</output></label><input id="s-meet" type="range" min="0" max="60" step="1" value="8"></div>
+          <div class="field"><label for="s-min">1回の会議の長さ<output id="o-min" class="num">60分</output></label><input id="s-min" type="range" min="15" max="180" step="15" value="60"></div>
+          <div class="field" style="margin-bottom:0"><label>使う機能</label>
+            <div class="mods">
+              <label><input type="checkbox" checked value="ai">AI資料作成</label>
+              <label><input type="checkbox" checked value="cue">AIカンペ</label>
+              <label><input type="checkbox" checked value="min">AI議事録</label>
+            </div>
+          </div>
+        </div>
+        <div class="sim-out" aria-live="polite">
+          <div class="row"><span>AI資料作成</span><b id="r-docs">10本</b></div>
+          <div class="row"><span>文字起こしの合計時間（2時間対応後）</span><b id="r-time">8時間00分</b></div>
+          <div class="row"><span>AIカンペ</span><b id="r-cue">使用する</b></div>
+          <div class="warnline" id="r-warn">1回2時間までの文字起こしは提供予定で、まだご利用いただけません（現在の実装は1回10分まで）。この試算は、2時間対応の提供開始後を前提に、1回2時間を上限として計算しています。</div>
+          <div class="pending"><b>クレジットの換算（承認済み・税別）</b><br>資料作成：20枚以内1件3cr／AI部分修正：1枚・1回0.5cr／標準画像の生成・再生成：1枚2cr／録音後の議事録：1分0.15cr／Liveカンペと標準議事録：1分0.5cr（同じ会議の標準議事録は二重加算なし）。<br>この試算では利用量（本数と時間）だけを表示しています。実際の消費クレジットは提供開始時の見積機能で表示します。</div>
+          <button class="btn btn-cta" data-open-form="見積相談">この条件で見積を相談する</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- セキュリティ要約 -->
+  <section class="sec alt">
+    <div class="wrap">
+      <h2 class="h2">会社の情報を、決めた範囲だけで扱う</h2>
+      <div class="sec-grid">
+        <div class="card sec-card" data-st="impl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8"/></svg><b class="h3">聴衆にはスライドだけ</b><p>ノート、想定Q&amp;A、企業メモ、AIの回答は発表者画面だけに表示します。</p></div>
+        <div class="card sec-card" data-st="plan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3a3 3 0 0 0-3 3v5a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3Z"/><path d="M5 11a7 7 0 0 0 14 0"/></svg><b class="h3">音声は開始と同意のあとだけ</b><p>音声は利用者が開始し、同意したときだけ使います。録音は契約中、保存容量の範囲内で保持し、個別・一括でダウンロードできます（提供開始時）。</p></div>
+        <div class="card sec-card" data-st="impl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h16M14 6l6 6-6 6"/></svg><b class="h3">AIへ送るのは選んだ情報</b><p>送信する発言や企業情報は利用者が選びます。送信の同意は音声とは別に確認します。</p></div>
+        <div class="card sec-card" data-st="wip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg><b class="h3">会社ごとにデータを分離</b><p>ログインのたびに所属と役割を確認し、閲覧者は編集できません。</p></div>
+      </div>
+      <div class="center"><a class="btn btn-line" href="#/security">セキュリティの詳細を見る<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+    </div>
+  </section>
+
+  <!-- 導入の流れ（時系列のためプレーンな番号表記） -->
+  <section class="sec">
+    <div class="wrap">
+      <h2 class="h2" data-st="tbd">お問い合わせから利用開始まで</h2>
+      <ol class="flow">
+        <li><span class="step">手順1</span><b>お問い合わせ</b><p>資料請求またはデモのお申し込み</p></li>
+        <li><span class="step">手順2</span><b>画面デモ・ご相談</b><p>使い方と必要なクレジットを確認</p></li>
+        <li><span class="step">手順3</span><b>お申し込み</b><p>会社単位でのご契約</p></li>
+        <li><span class="step">手順4</span><b>利用開始</b><p>開始日にクレジットを付与</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 稟議パッケージ -->
+  <section class="sec alt">
+    <div class="wrap">
+      <h2 class="h2">社内のご検討に必要な情報を、まとめてご案内</h2>
+      <div class="pack" data-st="plan">
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h9l4 4v14H6z"/></svg><span>機能の一覧と、できること・できないこと</span><span class="tag wait">準備中</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg><span>セキュリティ確認シートへの回答</span><span class="tag wait">準備中</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V10m6 10V4m6 16v-7m4 7H2"/></svg><span>利用量にもとづく費用の試算</span><span class="tag wait">準備中</span></li>
+        </ul>
+        <div style="text-align:center">
+          <p style="margin:0 0 14px;font-weight:700">決裁者・情報システム部門への説明に</p>
+          <button class="btn btn-cta btn-lg" data-open-form="社内検討資料">社内検討の進め方を相談する</button>
+          <p class="pending-note">資料は現在準備中です。ご相談の内容に応じて、ご案内できる範囲をお伝えします。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="sec">
+    <div class="wrap">
+      <h2 class="h2">よくあるご質問</h2>
+      <div class="faq">
+        <details data-st="policy"><summary>アカウントの人数に上限はありますか？</summary><p>上限はありません。会社単位の共通クレジットを、利用する方全員で使います。</p></details>
+        <details data-st="wip"><summary>作った資料をPowerPointで編集できますか？</summary><p>文字・図形・画像は編集できる形式で書き出します。表とグラフは図形の組み合わせで書き出すため、PowerPointの表・グラフ機能としては編集できません。</p></details>
+        <details data-st="impl"><summary>画面共有で発表者ノートが映りませんか？</summary><p>聴衆用の画面は別のウィンドウで開き、スライドの表示情報だけを送ります。発表者画面ではなく聴衆用の画面を共有してください。</p></details>
+        <details data-st="plan"><summary>会議の録音は保存されますか？</summary><p>録音は契約中、所定の保存容量の範囲内で保持し、一律1年後の自動削除は行いません。権限のある録音は個別・一括でダウンロードでき、不要な録音は削除できます。具体的な容量と提供開始時期は確定後にご案内します（録音の保存・ダウンロード機能は実装前です）。</p></details>
+        <details data-st="plan"><summary>長い会議でも文字起こしできますか？</summary><p>1回2時間までの文字起こしは提供予定で、まだご利用いただけません。現在の実装では1回10分までです。提供開始時期と上限時間は確定後にご案内します。</p></details>
+        <details data-st="tbd"><summary>クレジットが足りなくなったら？</summary><p>追加クレジットを購入できます（25cr 1,500円／100cr 5,000円／1,000cr 42,500円・税別）。クレジット不足時の開始制限や途中停止の扱いは、確定後にご案内します。</p></details>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============================================================
+     ページ2：個別機能詳細（テンプレート共通、内容をJSで差し替え）
+     ============================================================ -->
+<div class="page" data-page="feature">
+  <section class="sub-hero">
+    <div class="wrap">
+      <div class="crumb"><a href="#/">トップ</a> ／ <a href="#/#features">製品・機能</a> ／ <span id="f-crumb"></span></div>
+      <div class="sub-grid">
+        <div>
+          <h1 id="f-title"></h1>
+          <p id="f-lead"></p>
+          <div class="sub-nav">
+            <button class="btn btn-cta" data-open-form="デモ相談">この機能のデモを見る</button>
+            <button class="btn btn-line" data-open-form="資料請求">サービス資料</button>
+          </div>
+        </div>
+        <div class="feat-img" id="f-visual"></div>
+      </div>
+      <div class="sub-nav" id="f-tabs" aria-label="機能を切り替え"></div>
+    </div>
+  </section>
+  <section class="sec">
+    <div class="wrap">
+      <h2 class="h2">使う流れ</h2>
+      <ol class="steps" id="f-steps"></ol>
+    </div>
+  </section>
+  <section class="sec alt">
+    <div class="wrap">
+      <h2 class="h2">この機能でできること</h2>
+      <table class="scope" id="f-scope"><thead><tr><th scope="col" style="width:30%">項目</th><th scope="col">内容</th></tr></thead><tbody></tbody></table>
+    </div>
+  </section>
+  <section class="sec">
+    <div class="wrap">
+      <h2 class="h2">よく一緒に使う組み合わせ</h2>
+      <div class="combo" id="f-combo"></div>
+    </div>
+  </section>
+</div>
+
+<!-- ============================================================
+     ページ3：連携・書き出しハブ／詳細
+     ============================================================ -->
+<div class="page" data-page="integration">
+  <section class="sub-hero">
+    <div class="wrap">
+      <div class="crumb"><a href="#/">トップ</a> ／ 連携・書き出し</div>
+      <h1>連携・書き出し</h1>
+      <p>どのデータを、いつ、どこへ出すかを一覧にしています。外部への送信は、利用者の操作と同意があるときだけ行います。</p>
+    </div>
+  </section>
+  <section class="sec">
+    <div class="wrap">
+      <div class="filter" role="group" aria-label="種類で絞り込む">
+        <button aria-pressed="true" data-f="all">すべて</button>
+        <button aria-pressed="false" data-f="out">ファイルへ書き出し</button>
+        <button aria-pressed="false" data-f="ai">AI処理</button>
+        <button aria-pressed="false" data-f="base">ログイン・保存</button>
+      </div>
+      <div class="int-grid" id="int-grid">
+        <div class="card int-card" data-c="out" data-st="wip"><div class="ic">PPTX</div><b>PowerPoint形式</b><span class="cat">ファイルへ書き出し</span><p>文字・図形・画像を編集できる形式で書き出し</p><a class="btn btn-line btn-sm" href="#/integration/pptx">データの対応を見る →</a></div>
+        <div class="card int-card" data-c="out" data-st="impl"><div class="ic">PDF</div><b>PDF</b><span class="cat">ファイルへ書き出し</span><p>見た目どおりに書き出し。ノートと選択枠は含めません</p><a class="btn btn-line btn-sm" href="#/integration/pptx">データの対応を見る →</a></div>
+        <div class="card int-card" data-c="out" data-st="impl"><div class="ic">TXT</div><b>議事録の書き出し</b><span class="cat">ファイルへ書き出し</span><p>TXT・Markdown・PDF。関連資料の本文は含めません</p><a class="btn btn-line btn-sm" href="#/features/minutes">機能を見る →</a></div>
+        <div class="card int-card" data-c="out" data-st="impl"><div class="ic">JSON</div><b>バックアップ</b><span class="cat">ファイルへ書き出し</span><p>資料・履歴・想定Q&amp;Aをまとめて保存・復元</p><a class="btn btn-line btn-sm" href="#/security">保存の考え方 →</a></div>
+        <div class="card int-card" data-c="ai" data-st="tbd"><div class="ic">AI</div><b>資料生成AI</b><span class="cat">AI処理</span><p>構成案・スライド・ノートの生成。送信前に内容と同意を確認</p><a class="btn btn-line btn-sm" href="#/features/ai">機能を見る →</a></div>
+        <div class="card int-card" data-c="ai" data-st="tbd"><div class="ic">音声</div><b>文字起こしAI</b><span class="cat">AI処理</span><p>開始の操作と同意のあとに音声を送信</p><a class="btn btn-line btn-sm" href="#/features/minutes">機能を見る →</a></div>
+        <div class="card int-card" data-c="base" data-st="wip"><div class="ic">ID</div><b>会社のログイン</b><span class="cat">ログイン・保存</span><p>署名付きのログイン情報で本人・所属・役割を確認</p><a class="btn btn-line btn-sm" href="#/security">セキュリティを見る →</a></div>
+        <div class="card int-card" data-c="base" data-st="impl"><div class="ic">DB</div><b>共有保存と版の履歴</b><span class="cat">ログイン・保存</span><p>会社内で資料を共有保存し、過去の版を別資料として開く</p><a class="btn btn-line btn-sm" href="#/security">セキュリティを見る →</a></div>
+      </div>
+    </div>
+  </section>
+  <!-- 個別連携詳細（PPTX） -->
+  <section class="sec alt" id="int-detail">
+    <div class="wrap">
+      <h2 class="h2">PowerPoint形式への書き出しで、何がどう変わるか</h2>
+      <div class="cmp-wrap" tabindex="0" aria-label="データ対応表（横にスクロールできます）">
+        <table class="map" style="min-width:760px">
+          <thead><tr><th scope="col">エイスケのデータ</th><th scope="col"></th><th scope="col">PowerPointでの形</th><th scope="col">タイミング</th><th scope="col">編集</th></tr></thead>
+          <tbody>
+            <tr><td>文字</td><td class="arrow">→</td><td>テキストボックス（左・中央・右揃えを維持）</td><td>書き出しの操作時</td><td>できる</td></tr>
+            <tr><td>四角・楕円・線</td><td class="arrow">→</td><td>図形</td><td>書き出しの操作時</td><td>できる</td></tr>
+            <tr><td>画像（PNG・JPEG・WebP）</td><td class="arrow">→</td><td>画像</td><td>書き出しの操作時</td><td>できる</td></tr>
+            <tr><td>表</td><td class="arrow">→</td><td>文字と図形の組み合わせ</td><td>書き出しの操作時</td><td>文字・図形として編集（表機能は不可）</td></tr>
+            <tr><td>棒グラフ</td><td class="arrow">→</td><td>図形の組み合わせ</td><td>書き出しの操作時</td><td>図形として編集（グラフ機能は不可）</td></tr>
+            <tr data-st="tbd"><td>発表者ノート</td><td class="arrow">→</td><td>（主管確認後に記載）</td><td>—</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:14px;color:var(--sub);margin-top:14px">フォントや改行の位置は、PowerPointの環境によって変わる場合があります。</p>
+    </div>
+  </section>
+</div>
+
+<!-- ============================================================
+     ページ4：セキュリティ
+     ============================================================ -->
+<div class="page" data-page="security">
+  <section class="sub-hero">
+    <div class="wrap">
+      <div class="crumb"><a href="#/">トップ</a> ／ セキュリティ</div>
+      <h1>セキュリティと情報の扱い</h1>
+      <p>発表中の画面、音声、AIへの送信、会社ごとのデータの分け方について、エイスケの考え方と仕組みをまとめています。</p>
+      <div class="sub-nav"><button class="btn btn-cta" data-open-form="社内検討資料">セキュリティ確認シートの回答を相談する</button></div>
+    </div>
+  </section>
+  <section class="sec">
+    <div class="wrap">
+      <h2 class="h2">4つの考え方</h2>
+      <div class="sec-list">
+        <div class="card sec-item" data-st="impl"><b class="h3">発表中の画面</b><ul><li>聴衆用の画面は別ウィンドウで開き、スライドの表示情報だけを送信</li><li>ノート・想定Q&amp;A・企業メモ・議事録・AIの回答は聴衆に送らない</li><li>発表の終了やページ離脱で聴衆画面との接続を終了</li></ul></div>
+        <div class="card sec-item" data-st="impl"><b class="h3">音声と同意</b><ul><li>音声は利用者が開始したときだけ取得</li><li>音声の利用と、AIへの送信は別々に同意を確認</li><li data-st="plan">録音は契約中、所定の容量内で保持し、個別・一括で取り出せます（具体的な容量は確定後に記載・機能は実装前）</li><li>同意の撤回やページ離脱で接続を停止</li></ul></div>
+        <div class="card sec-item" data-st="impl"><b class="h3">AIへの送信</b><ul><li>送るのは利用者が選んだ発言・資料・企業情報だけ</li><li>AIの回答は確認してから反映。担当や期限は推測しない</li><li>AIが止まっても、資料の編集と通常の発表は続けられる</li></ul></div>
+        <div class="card sec-item" data-st="wip"><b class="h3">会社ごとのデータの分離</b><ul><li>署名付きのログイン情報で本人を確認し、所属と役割をデータベースで照合</li><li>データベースの行単位で会社ごとにアクセスを制限</li><li>閲覧者は編集できない。権限がなくなった利用者は利用できない</li><li>APIの鍵はサーバーだけで扱い、ブラウザへ渡さない</li></ul></div>
+      </div>
+    </div>
+  </section>
+  <section class="sec alt">
+    <div class="wrap">
+      <h2 class="h2">保存される場所</h2>
+      <table class="scope">
+        <thead><tr><th scope="col" style="width:30%">データ</th><th scope="col">保存先と扱い</th></tr></thead>
+        <tbody>
+          <tr data-st="impl"><td>資料・画像・ノート</td><td>利用中のブラウザに自動保存。共有保存を選ぶと会社のクラウド保存へ</td></tr>
+          <tr data-st="impl"><td>版の履歴</td><td>直近20件を保持。過去の版は別の資料として開くので、現在の資料は上書きされません</td></tr>
+          <tr data-st="tbd"><td>企業情報・議事録</td><td>現在は利用中のブラウザ内に保存（会社内での共有方法は確認中・主管確認）</td></tr>
+          <tr data-st="plan"><td>音声・録音</td><td>契約中は所定の容量内で保持し、個別・一括でダウンロードできます。具体的な容量と保存期間の詳細は確定後に記載します（録音の保存機能は実装前）</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</div>
+<!-- ============================================================
+     ページ5：URLが見つからないとき
+     ============================================================ -->
+<div class="page" data-page="notfound">
+  <section class="sub-hero">
+    <div class="wrap">
+      <div class="crumb"><a href="#/">トップ</a> ／ ページが見つかりません</div>
+      <h1>ページが見つかりません</h1>
+      <p>URLが変わったか、ページがまだ用意されていません。下のリンクから目的の画面へお進みください。</p>
+      <div class="sub-nav">
+        <a class="btn btn-brand" href="#/">トップへ戻る</a>
+        <a class="btn btn-line" href="#/integration">連携・書き出し</a>
+        <a class="btn btn-ghost" href="#/security">セキュリティ</a>
+      </div>
+    </div>
+  </section>
+</div>
+</main>
+
+<!-- ===================== フッター ===================== -->
+<footer class="ft">
+  <div class="wrap">
+    <div class="ft-grid">
+      <div><b style="color:#fff;font-size:20px;letter-spacing:.06em">エイスケ</b><p style="margin:8px 0 0">法人向け 資料作成・発表支援・議事録</p><p style="margin:4px 0 0">提供：株式会社Growst</p></div>
+      <div><h4>製品・機能</h4><a href="#/features/ai">AI資料作成</a><a href="#/features/edit">編集・書き出し</a><a href="#/features/present">発表者画面とAIカンペ</a><a href="#/features/minutes">議事録</a><a href="#/features/company">企業リサーチ</a></div>
+      <div><h4>導入の検討</h4><a href="#/integration">連携・書き出し</a><a href="#/security">セキュリティ</a><a href="#/#pricing">料金の考え方</a></div>
+      <div><h4>お問い合わせ</h4><a href="#" data-open-form="資料請求">サービス資料</a><a href="#" data-open-form="デモ相談">デモ・導入相談</a><span class="ft-pending" data-st="tbd">利用規約<small>公開前に掲載</small></span><span class="ft-pending" data-st="tbd">プライバシーポリシー<small>公開前に掲載</small></span></div>
+    </div>
+    <div class="ft-bottom"><span>© Growst Inc.</span><span>このサイトは公開前のモックです。掲載内容は確定していません。</span></div>
+  </div>
+</footer>
+
+<!-- スマホ下部固定CTA -->
+<div class="sp-bar">
+  <button class="btn btn-line" data-open-form="資料請求">サービス資料</button>
+  <button class="btn btn-cta" data-open-form="デモ相談">デモ・導入相談</button>
+</div>
+
+<!-- ===================== EFOフォーム（モーダル） ===================== -->
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="m-title">
+  <div class="modal-box">
+    <button class="modal-x" type="button" aria-label="閉じる" id="m-close">×</button>
+    <form id="form" novalidate>
+      <h2 id="m-title">サービス資料の請求</h2>
+      <div class="micro"><span>必須は4項目</span><span>デモ表示（実際には送信しません）</span></div>
+      <div class="f-row"><label for="f-co">会社名<em>必須</em></label><input id="f-co" autocomplete="organization" required><div class="f-err">会社名を入力してください</div></div>
+      <div class="f-row"><label for="f-name">お名前<em>必須</em></label><input id="f-name" autocomplete="name" required><div class="f-err">お名前を入力してください</div></div>
+      <div class="f-row"><label for="f-mail">会社のメールアドレス<em>必須</em></label><input id="f-mail" type="email" inputmode="email" autocomplete="email" required><div class="f-err">メールアドレスの形式で入力してください</div></div>
+      <div class="f-row"><label for="f-kind">ご希望<em>必須</em></label><select id="f-kind" required><option value="">選択してください</option><option>資料請求</option><option>デモ相談</option><option>社内検討資料</option><option>見積相談</option><option>その他</option></select><div class="f-err">ご希望を選んでください</div></div>
+      <label class="agree" id="f-agree-row" for="f-agree"><input type="checkbox" id="f-agree"> <span>個人情報の取り扱い<span class="tag" data-st="tbd">公開前に掲載</span>に同意する</span></label>
+      <div class="agree-err" id="f-agree-err" role="alert">個人情報の取り扱いへの同意が必要です</div>
+      <button class="btn btn-cta btn-lg" style="width:100%" type="submit">送信する</button>
+      <p class="form-note">このサイトは公開前のモックです。入力内容は送信も保存もされません。</p>
+    </form>
+    <div class="done" id="done"><b class="h3">入力内容を確認しました（モック表示）</b><p>実際の送信・保存は行っていません。公開時は、送信先と自動返信の設定が必要です。</p><button class="btn btn-line" type="button" id="m-close2">閉じる</button></div>
+  </div>
+</div>
+
+<button class="st-toggle" type="button" id="st-toggle" aria-pressed="false" title="確認用の表示です。公開前に削除します。">確認用ラベル：非表示</button>
+
+<script src="assets/js/site.js" defer></script>
+</body>
+</html>
